@@ -75,6 +75,8 @@ void main(void){
   // 音色に関連する。
   // 0.0 から 1.0 までの値を取る。
 
+  float envelope = 1.0;
+
   /**
    * 線形補間エンベロープ。
    * 1-\operatorname{mod}\left(x,1\right)
@@ -90,21 +92,21 @@ void main(void){
    * b=1
    * -2t^{3}+3t^{2}
    */
-  // float envelope = smoothstep(0.0, 1.0, 1.0 - fract(time));
+  // envelope = smoothstep(0.0, 1.0, 1.0 - fract(time));
 
   /**
    * 指数関数エンベロープ。
    * \left(1-\operatorname{mod}\left(x,1\right)\right)\cdot\left(\exp\left(\operatorname{mod}\left(x,\ 1\right)\cdot-5\right)\right)
    */
-  // float envelope = (1.0 - mod(time, 1.0)) * exp(mod(time, 1.0) * -5.0);
+  // envelope = (1.0 - mod(time, 1.0)) * exp(mod(time, 1.0) * -5.0);
 
   /**
-   * それっぽい適当なエンベロープ。
+   * 適当なエンベロープ。
    * \left(1-\operatorname{mod}\left(x,1\right)\right)\cdot\left(\exp\left(\operatorname{mod}\left(x,\ 1\right)\cdot b\right)\right)\cdot\operatorname{abs}\left(\sin\left(0.5\tau x\right)\right)\cdot a
    * a=9.6
    * b=-10
    */
-  float envelope = (1.0 - mod(time, 1.0)) * exp(mod(time, 1.0) * -10.0) * abs(sin(0.5 * TAU * progress)) * 9.6;
+  // envelope = (1.0 - mod(time, 1.0)) * exp(mod(time, 1.0) * -10.0) * abs(sin(0.5 * TAU * progress)) * 9.6;
 
   // Step 4.最終的に出力される音を作る。
   // 基本の音色にエンベロープと音量を掛け合わせる。

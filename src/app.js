@@ -1,5 +1,6 @@
-import { vertexShaderScript } from './vertexShader.js?v114'; 
-import { fragmentShaderScript } from './fragmentShader.js?v1'; 
+import { vertexShaderScript } from './phase_1/vertexShader.js';
+// import { vertexShaderScript } from './phase_2/vertexShader.js';
+import { fragmentShaderScript } from './fragmentShader.js';
 
 window.addEventListener('DOMContentLoaded', main);
 
@@ -85,6 +86,7 @@ function main() {
 
   // ボタンを押すと、音を鳴らすようにする。
   // 次に押すと、音を止めるようにする。
+  // （再度ボタンを押しても再開はできない）
   const playButton = document.getElementById('play');
   playButton.addEventListener('click', () => {
     switch (audioContext.state) {
